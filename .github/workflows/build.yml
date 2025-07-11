@@ -23,6 +23,10 @@ jobs:
         git clone --depth=1 https://github.com/hanwckf/immortalwrt-mt798x openwrt
         cp .config openwrt/.config
 
+    - name: Add extra feeds (for Lucky)
+      run: |
+        echo "src-git lucky https://github.com/sirpdboy/luci-app-lucky" >> openwrt/feeds.conf.default
+
     - name: Install feeds
       run: |
         cd openwrt
